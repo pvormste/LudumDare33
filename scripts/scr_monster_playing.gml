@@ -55,6 +55,17 @@ else {
 }
 
 
+/*if(isCollidingWithBuilding) {
+    vspeed = -2.2*vspd;
+    gravity = 1
+    canJump = false;
+    isJumping = true;
+}
+else if(isJumping && vspeed >= 0) {
+    gravity = 0;
+    vspeed = 0;
+}*/
+
 // Shoot
 if(canShoot && fire_key) {
     canShoot = false;
@@ -74,5 +85,14 @@ if(canShoot && fire_key) {
         image_angle = point_direction(x, y, aim_x, aim_y);
     }
 }
+
+// Health
+if (health < 0) {
+    health = 0;
+    die = true;
+    sprite_index = spr_monster_dead;
+    image_speed = 0.5;
+}
+
 
 

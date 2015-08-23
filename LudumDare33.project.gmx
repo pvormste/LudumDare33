@@ -11,6 +11,7 @@
       <sprite>sprites\spr_monster</sprite>
       <sprite>sprites\spr_cursor</sprite>
       <sprite>sprites\spr_fire</sprite>
+      <sprite>sprites\spr_monster_dead</sprite>
     </sprites>
     <sprites name="buildings">
       <sprite>sprites\spr_building1</sprite>
@@ -22,12 +23,15 @@
       <sprite>sprites\spr_soldier</sprite>
       <sprite>sprites\spr_s_bullet</sprite>
       <sprite>sprites\spr_tank</sprite>
+      <sprite>sprites\spr_t_bullet</sprite>
     </sprites>
     <sprites name="effects">
       <sprite>sprites\spr_fire_particles</sprite>
     </sprites>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background0</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\scr_monster_playing.gml</script>
@@ -35,6 +39,15 @@
     <script>scripts\scr_enemy_playing.gml</script>
     <script>scripts\scr_soldier_playing.gml</script>
     <script>scripts\scr_tank_playing.gml</script>
+    <script>scripts\scr_draw_text_outline.gml</script>
+    <script>scripts\scr_draw_text_outline_color.gml</script>
+    <script>scripts\scr_draw_text_shadow.gml</script>
+    <script>scripts\scr_start_wave.gml</script>
+    <script>scripts\scr_spawn.gml</script>
+    <script>scripts\scr_controller_playing.gml</script>
+    <script>scripts\scr_controller_draw_between.gml</script>
+    <script>scripts\scr_controller_between.gml</script>
+    <script>scripts\scr_controller_draw_dead.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_monster</object>
@@ -47,6 +60,7 @@
       <object>objects\obj_bullet</object>
       <object>objects\obj_fire</object>
       <object>objects\obj_s_bullet</object>
+      <object>objects\obj_t_bullet</object>
     </objects>
     <objects name="buildings">
       <object>objects\obj_building</object>
@@ -62,8 +76,10 @@
     <objects name="effects">
       <object>objects\obj_fire_effect</object>
     </objects>
+    <object>objects\obj_title_controller</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_title</room>
     <room>rooms\rm_game</room>
   </rooms>
   <help>

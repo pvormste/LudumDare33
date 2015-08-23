@@ -37,6 +37,9 @@ canJump = true;
 // Shoot
 canShoot = true;
 
+// Health
+health = 100;
+die = false;
 // State
 //state = State.playing;
 </string>
@@ -85,16 +88,107 @@ canShoot = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Movement
+            <string>/// State machine (Monster)
 
 
 // States
 
 switch(global.state) {
     case State.playing:
+    case State.between:
         scr_monster_playing(); break;
+    case State.dead:
+        break;
         
 } 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(die &amp;&amp; sprite_index == spr_monster_dead) {
+    global.state = State.dead;
+    image_speed = 0;
+    image_index = 4;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw Health
+
+scr_draw_text_outline("Health", 15, 15);
+ 
+draw_set_colour(c_black);
+draw_rectangle(15, 40, 300, 60, true);
+
+if(health &lt;= 25)
+    draw_set_colour(c_red);
+else if(health &lt;= 50 &amp;&amp; health &gt; 25)
+    draw_set_colour(c_yellow);
+else
+    draw_set_colour(c_green);
+
+draw_rectangle(16, 41, 16+283*health/100, 59, false);
+scr_draw_text_outline(health, 130, 43);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="72">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>health -= 10;
 </string>
           </argument>
         </arguments>

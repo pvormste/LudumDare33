@@ -3,7 +3,7 @@ move_towards_point(obj_monster.x, y, spd);
 var dtm = distance_to_object(obj_monster);
 var dtt = distance_to_object(obj_tank);
 
-if(dtm < 300 && !goBack) {
+if((dtm < 100 || abs(obj_monster.x - x) < 100) && !goBack) {
     speed = 0;
 }
 
@@ -28,7 +28,7 @@ if(canShoot) {
     canShoot = false;
     alarm[0] = 4.5*room_speed;
 
-    with(instance_create(x, y, obj_s_bullet)) {
+    with(instance_create(x, y, obj_t_bullet)) {
         aim_x = obj_monster.x;
         aim_y = obj_monster.y - 30;
         direction = point_direction(x, y, aim_x, aim_y);

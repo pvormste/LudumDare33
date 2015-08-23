@@ -4,7 +4,7 @@ move_towards_point(obj_monster.x, y, spd);
 var dtm = distance_to_object(obj_monster);
 var dte = distance_to_object(obj_enemy);
 
-if(dtm < 100 && !goBack) {
+if((dtm < 100 || abs(obj_monster.x - x) < 100)  && !goBack) {
     speed = 0;
 }
 
@@ -27,7 +27,7 @@ if(goBack) {
 // Shooting
 if(canShoot) {
     canShoot = false;
-    alarm[0] = 2.5*room_speed;
+    alarm[0] = 2*room_speed;
 
     with(instance_create(x, y, obj_s_bullet)) {
         aim_x = obj_monster.x;
