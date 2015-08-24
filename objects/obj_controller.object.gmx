@@ -61,6 +61,12 @@ next = false;
 // Wait 3 sec to start
 alarm[0] = 3*room_speed;
 global.state = State.between;
+
+// C_Sound
+sndC1played = false;
+sndC2played = false;
+sndC3played = false;
+sndC4played = false;
 </string>
           </argument>
         </arguments>

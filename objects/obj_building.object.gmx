@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// Create building
 image_speed = 0;
-b_health = 5;
+b_health = 4;
 isHitable = true;
 </string>
           </argument>

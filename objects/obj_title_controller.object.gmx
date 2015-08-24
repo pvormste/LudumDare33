@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(spr_cursor, 0, 714, 710);
+            <string>draw_sprite(spr_monster, 0, 512, 128);
+draw_sprite(spr_soldier, 0, 864, 300);
+draw_sprite(spr_tank, 0, 896, 300);
+draw_sprite(spr_cursor, 0, 714, 710);
 </string>
           </argument>
         </arguments>
